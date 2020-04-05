@@ -1,0 +1,15 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      discovery:
+        secret-key: localhost:8848  #配置nacos地址
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "*"

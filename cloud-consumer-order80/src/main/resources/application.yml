@@ -1,0 +1,23 @@
+server:
+  port: 80
+
+
+spring:
+  application:
+    name: cloud-order-service
+  zipkin:
+    base-url: http://localhost:9411
+    sleuth:
+      sampler:
+        probability: 1 #采样率介于0到1,1表示全部采集
+
+  #eureka配置
+eureka:
+  client:
+    register-with-eureka: true  #向eureka server 注册自己
+    fetch-registry: true  #s是否从eureka server 抓取已有信息，默认为true 单节点无所谓，集群条件必须设置为true,才能配合ribbon使用负载均衡
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/   #集群版
+    instance:
+      instance-id: jiatp-cloud-service80
+      prefer-ip-address: true  # 访问路径有IP提示

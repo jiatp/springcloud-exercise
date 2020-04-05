@@ -1,0 +1,18 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:zzyybs/microservicecloud-config.git #GitHub上面的git仓库名字
+          search-paths:
+            - springcloud-config  #找这个仓库
+
+      label: master  #主分支
+eureka:
+  client:
+    service-url: http://localhost:7001/eureka
